@@ -28,9 +28,9 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li>{{ HTML::linkAction('PagesController@Home', 'Home')}}</li>
-												<li>{{ HTML::linkAction('PagesController@getInvia', 'Invia')}}</a></li>
-                        <li>{{ HTML::linkAction('PagesController@Controllo', 'Controllo')}}</a></li>
+                        <li><a href="{{ URL::to('home') }}">Home</a</li>
+												<li><a href="{{ URL::to('invia') }}">Invia</a></li>
+                        <li><a href="{{ URL::to('controllo') }}">Controllo</a></li>
                     </ul>
                 </div>
             </div>

@@ -16,8 +16,8 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('mailmanager', array('as' => 'home', 'uses' => 'PagesController@Home'));
+Route::get('home', array('as' => 'home', 'uses' => 'PagesController@Home'));
 
-Route::get('mailmanager/invia', array('as' => 'invia', 'uses' => 'PagesController@getInvia'));
-
-Route::get('mailmanager/controllo', array('as' => 'controllo', 'uses' => 'PagesController@Controllo'));
+Route::controller('invia', 'MailController');
+Route::get('controllo', 'MailController@Ricezione');
+ 
