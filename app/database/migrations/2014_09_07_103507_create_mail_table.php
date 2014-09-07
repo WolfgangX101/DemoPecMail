@@ -15,7 +15,8 @@ class CreateMailTable extends Migration {
 		Schema::create('mail_inviate', function(Blueprint $table)
 		{
 			$table->increments('id_mail');
-			$table->boolean('confirmed_send');
+			$table->boolean('send')->default(0);
+			$table->boolean('recived')->default(0);
 			$table->timestamps();
 			$table->string('to', 78);
 			$table->string('object', 78);
