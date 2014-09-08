@@ -18,6 +18,6 @@ Route::get('/', function()
 
 Route::get('home', array('as' => 'home', 'uses' => 'PagesController@Home'));
 
-Route::controller('invia', 'MailController');
-Route::get('controllo', 'MailController@Ricezione');
- 
+Route::controller('preparazione', 'MailController');
+Route::get('invio', 'MailController@MailList');
+Route::post('invio', 'MailController@Invio');

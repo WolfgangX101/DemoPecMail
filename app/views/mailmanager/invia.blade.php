@@ -3,13 +3,11 @@
 @section('content')
 	<div class="container theme-showcase" role="main">
       <div class="jumbotron">
-        <h1>Invio mail con allegato pdf</h1>
+        <h1>Creazione Mail da inviare</h1>
 			</div>
 	</div>
-	<div class="container">
-	</div>
 	<div class="container col-lg-4">
-			{{ Form::open(array('url' => 'invia')) }}
+			{{ Form::open(array('url' => 'preparazione')) }}
 			<div class="form-group">
 				{{ Form::label('lbldestinatario', 'Destinatario') }}
 				{{ Form::text('to',Input::old('to'), array('class' => 'form-control')) }}

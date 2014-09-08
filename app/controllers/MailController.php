@@ -6,8 +6,7 @@ class MailController extends \BaseController {
 	public function getIndex()
 	{
 		return View::make('mailmanager.invia')
-			->with('title','Invia')
-			->with('esito','Attesa');	
+			->with('title','Creazione Mail');
 	}
 
 	public function postIndex()
@@ -24,18 +23,28 @@ class MailController extends \BaseController {
 
 		if ($validator->fails()) 
 		{
-			return Redirect::to('invia')->withErrors($validator)->withInput()->with('esito','Non Inviato');
+			return Redirect::to('preparazione')->withErrors($validator)->withInput()->with('esito','Non Inviato');
 		}
 		$mail = Mailinviate::create($input);
 		$mail->push();
-		return Redirect::to('invia')->with('esito','Inviato');
+		return Redirect::to('preparazione')->with('esito','Inviato');
 	}
 	
-	public function Ricezione()
+	public function MailList()
 	{
+		$allmail = Mailinviate::qFindAllMail(); //trova tutte le mail del database
 		return View::make('mailmanager.ricezione')
-			->with('title','Ricezione')
-			->with('navcontroller','Ricezione');	
+			->with('title','Mail Controller')
+			->with('allmail', $allmail);	
+	}
+	
+	public function Invio()
+	{
+		
+		$allmail = Mailinviate::qFindAllMail(); //trova tutte le mail del database
+		return View::make('mailmanager.ricezione')
+			->with('title','BUBU')
+			->with('allmail', $allmail);	
 	}
 
 }

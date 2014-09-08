@@ -5,4 +5,7 @@ class Mailinviate extends Eloquent {
 	protected $fillable = array('to', 'object', 'text');
 	protected $guarded = array('id_mail');
 	
+	public static function qFindAllMail() {
+		return static::where('to','!=','NULL')->orderBy('created_at','ASC')->get();
+	}
 }

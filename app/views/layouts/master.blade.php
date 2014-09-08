@@ -29,8 +29,8 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a href="{{ URL::to('home') }}">Home</a</li>
-												<li><a href="{{ URL::to('invia') }}">Invia</a></li>
-                        <li><a href="{{ URL::to('controllo') }}">Controllo</a></li>
+												<li><a href="{{ URL::to('preparazione') }}">Creazione Mail</a></li>
+                        <li><a href="{{ URL::to('invio') }}">Mail Controller</a></li>
                     </ul>
                 </div>
             </div>
