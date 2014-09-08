@@ -33,18 +33,57 @@ class MailController extends \BaseController {
 	public function MailList()
 	{
 		$allmail = Mailinviate::qFindAllMail(); //trova tutte le mail del database
-		return View::make('mailmanager.ricezione')
+		return View::make('mailmanager.list')
 			->with('title','Mail Controller')
 			->with('allmail', $allmail);	
 	}
 	
-	public function Invio()
+	public function notSended()
 	{
 		
-		$allmail = Mailinviate::qFindAllMail(); //trova tutte le mail del database
-		return View::make('mailmanager.ricezione')
+		
+		$notsended = Mailinviate::qFindAllMailnotSendedorConfirmed(); //trova tutte le mail non inviate del database
+		
+		foreach ($notsended as $notsend) 
+		{
+			$data = array('text',$notsend['text']);
+			Mail::send('emails.prova', $data, function($message) use ($notsend)
+			{
+				$message->to($notsend->to, $notsend->to)->subject($notsend->object);
+			});
+			DB::table('mail_inviate')->where('id_mail', $notsend['id_mail'])->update(array('send' => 1));
+		}
+		
+		return View::make('mailmanager.sender')
 			->with('title','BUBU')
-			->with('allmail', $allmail);	
+			->with('allmail', Mailinviate::qFindAllMailnotSendedorConfirmed());	
+	}
+	
+		public function notConfirmed()
+	{
+		
+		
+		$notsended = Mailinviate::qFindAllMailnotSendedorConfirmed(); //trova tutte le mail non inviate del database
+		
+		foreach ($notsended as $notsend) 
+		{
+			$data = array('text',$notsend['text']);
+			Mail::send('emails.prova', $data, function($message) use ($notsend)
+			{
+				$message->to($notsend->to, $notsend->to)->subject($notsend->object);
+			});
+			DB::table('mail_inviate')->where('id_mail', $notsend['id_mail'])->update(array('recived' => 1));
+		}
+		
+		return View::make('mailmanager.sender')
+			->with('title','BUBU')
+			->with('allmail', Mailinviate::qFindAllMailnotSendedorConfirmed());	
 	}
 
+	public function Invio()
+	{
+		return View::make('mailmanager.sender')
+			->with('title','BUBU')
+			->with('allmail', Mailinviate::qFindAllMailnotSendedorConfirmed());	
+	}
 }

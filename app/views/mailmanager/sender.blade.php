@@ -3,7 +3,7 @@
 @section('content')
 <div class="container theme-showcase" role="main">
 	<div class="jumbotron">
-		<h1>Controllo mail Inviate</h1>
+		<h1>Mail non Inviate</h1>
 	</div>
 </div>
 <div class="container col-lg-8">
@@ -43,8 +43,11 @@
 	</table>
 </div>
 	<div class="container col-lg-8">
-		{{ Form::open(array('url' => 'invio')) }}
-			{{ Form::submit('Invia non Inviati') }}
+		{{ Form::open(array('url' => 'invio/notsended')) }}
+			{{ Form::submit('Invia non Inviati', array('class' =>'btn btn-default')) }}
+		{{ Form::close() }}
+		{{ Form::open(array('url' => 'invio/notconfirmed')) }}
+			{{ Form::submit('Invia senza Conferma', array('class' =>'btn btn-default')) }}
 		{{ Form::close() }}
 	</div>
 @stop

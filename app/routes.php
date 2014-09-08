@@ -19,5 +19,7 @@ Route::get('/', function()
 Route::get('home', array('as' => 'home', 'uses' => 'PagesController@Home'));
 
 Route::controller('preparazione', 'MailController');
-Route::get('invio', 'MailController@MailList');
-Route::post('invio', 'MailController@Invio');
+Route::get('list', 'MailController@MailList');
+Route::get('invio', 'MailController@Invio');
+Route::post('invio/notsended', 'MailController@notSended');
+Route::post('invio/notconfirmed', 'MailController@notConfirmed');

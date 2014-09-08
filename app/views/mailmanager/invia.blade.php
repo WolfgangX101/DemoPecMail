@@ -31,9 +31,9 @@
 	</div>
 	<div class="container col-lg-4">
 		@if (Session::get('esito')=='Inviato')
-			<div class="alert alert-success" role="alert">Mail inviata con successo</div>
+			<div class="alert alert-success" role="alert">Mail Aggiunta alla Lista</div>
 		@elseif (Session::get('esito')=='Non Inviato')
-			<div class="alert alert-danger" role="alert">Mail non inviata</div>
+			<div class="alert alert-danger" role="alert">Mail non Aggiunta alla Lista</div>
 			@foreach ($errors->all() as $errors)
 				<div class="alert alert-warning" role="alert">{{ $errors }}</div>
 			@endforeach

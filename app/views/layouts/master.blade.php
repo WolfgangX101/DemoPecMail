@@ -30,7 +30,8 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ URL::to('home') }}">Home</a</li>
 												<li><a href="{{ URL::to('preparazione') }}">Creazione Mail</a></li>
-                        <li><a href="{{ URL::to('invio') }}">Mail Controller</a></li>
+                        <li><a href="{{ URL::to('list') }}">Mail List</a></li>
+												<li><a href="{{ URL::to('invio') }}">Mail Sender</a></li>
                     </ul>
                 </div>
             </div>
