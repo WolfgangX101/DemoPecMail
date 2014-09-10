@@ -20,10 +20,10 @@
 				{{ Form::label('lbltext', 'Testo') }}
 				{{ Form::text('text',Input::old('text'), array('class' => 'form-control')) }} 
 			</div>
-			<div class="form-group">
+			<!--<div class="form-group">
 				{{ Form::label('lblfile', 'File') }}
 				{{ Form::file('pdf') }} 
-			</div>
+			</div>-->
 			<div class="form-group">
 				{{ Form::submit('Invia') }}
 			</div>
